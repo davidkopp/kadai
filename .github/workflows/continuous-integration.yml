@@ -501,12 +501,30 @@ jobs:
           # so that tag pushes trigger repo push events.
           # source: https://github.community/t/action-does-not-trigger-another-on-push-tag-action/17148/7
           token: ${{ secrets.ADMIN_PERSONAL_ACCESS_TOKEN }}
+      - name: Commit release version and update tag
+        run: |
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Set version to release version and commit
+          ci/change_version.sh -m .
+          git add .
+          git commit -m "Release version ${GITHUB_REF##refs/tags/v}"
+          
+          # Update the tag to point to this commit
+          git tag -f "${GITHUB_REF##refs/tags/}"
+          git push --force-with-lease origin "${GITHUB_REF##refs/tags/}"
       - name: Update version to next snapshot and push back
         run: |
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
           ci/change_version.sh -i -m .
-        env:
-          GH_EMAIL: ${{ secrets.GH_EMAIL }}
-          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          git add .
+          git commit -m "Update version to next development snapshot"
+          git push
       - name: Cancel workflow
         if: failure()
         uses: andymckay/cancel-action@0.5
