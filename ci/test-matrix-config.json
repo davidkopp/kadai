@@ -1,0 +1,143 @@
+{
+  "modules": {
+    "kadai-common": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-common-security": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-common-data": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-common-logging": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-common-test": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-core": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "POSTGRES", "jdk": 17},
+        {"database": "DB2", "jdk": 17}
+      ]
+    },
+    "kadai-core-test": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "POSTGRES", "jdk": 17},
+        {"database": "DB2", "jdk": 17}
+      ]
+    },
+    "kadai-test-api": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "POSTGRES", "jdk": 17},
+        {"database": "DB2", "jdk": 17}
+      ]
+    },
+    "kadai-spring": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-spring-example": {
+      "type": "leaf",
+      "change_filter": "kadai_spring_example_changed",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-spi-routing-dmn-router": {
+      "type": "leaf",
+      "change_filter": "kadai_spi_routing_dmn_router_changed",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-routing-rest": {
+      "type": "leaf",
+      "change_filter": "kadai_routing_rest_changed",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "DB2", "jdk": 21}
+      ]
+    },
+    "kadai-rest-spring": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-rest-spring-test-lib": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-rest-spring-example-common": {
+      "type": "core",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "DB2", "jdk": 21}
+      ]
+    },
+    "kadai-loghistory-provider": {
+      "type": "leaf",
+      "change_filter": "kadai_loghistory_provider_changed",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17}
+      ]
+    },
+    "kadai-simplehistory-provider": {
+      "type": "leaf",
+      "change_filter": "kadai_simplehistory_provider_changed",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "POSTGRES", "jdk": 17},
+        {"database": "DB2", "jdk": 17}
+      ]
+    },
+    "kadai-simplehistory-rest-spring": {
+      "type": "leaf",
+      "change_filter": "kadai_simplehistory_rest_spring_changed",
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "DB2", "jdk": 21}
+      ]
+    },
+    "kadai-rest-spring-example-boot": {
+      "type": "leaf",
+      "change_filter": "kadai_rest_spring_example_boot_changed",
+      "dependencies": [
+        "kadai_spi_routing_dmn_router_changed",
+        "kadai_routing_rest_changed"
+      ],
+      "test_combinations": [
+        {"database": "H2", "jdk": 17},
+        {"database": "POSTGRES", "jdk": 17},
+        {"database": "DB2", "jdk": 17},
+        {"database": "DB2", "jdk": 21}
+      ]
+    }
+  }
+}
